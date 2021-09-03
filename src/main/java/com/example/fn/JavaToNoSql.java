@@ -14,7 +14,7 @@ import java.util.UUID;
 public class JavaToNoSql {
     CloudConfig cloudconfig = new CloudConfig();
     public String handleRequest(String input) throws IOException {
-        if(input == null){
+        if(input == null || input == ""){
             return "input nulo";
         }
         Message message = null;
