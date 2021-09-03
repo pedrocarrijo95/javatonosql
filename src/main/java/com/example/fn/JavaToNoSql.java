@@ -8,6 +8,7 @@ import oracle.nosql.driver.ops.PutResult;
 import oracle.nosql.driver.values.MapValue;
 
 import java.io.IOException;
+import java.util.UUID;
 
 
 public class JavaToNoSql {
@@ -39,7 +40,7 @@ public class JavaToNoSql {
     public String inserirRegistro(NoSQLHandle handle, Message input) throws Exception {
 
         /* Make a row and write it */
-        MapValue value = new MapValue().put("key", input.getKey()).put("title", input.getTitle()).put("message", input.getMessage()).put("sender", input.getSender());
+        MapValue value = new MapValue().put("key", UUID.randomUUID().toString()).put("title", input.getTitle()).put("message", input.getMessage()).put("sender", input.getSender());
         PutRequest putRequest = new PutRequest().setValue(value).setTableName(cloudconfig.tableName);
 
         PutResult putResult = handle.put(putRequest);

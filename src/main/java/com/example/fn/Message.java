@@ -2,18 +2,9 @@ package com.example.fn;
 
 public class Message {
 
-    private String key;
     private String title;
     private String message;
     private String sender;
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
 
     public String getTitle() {
         return title;

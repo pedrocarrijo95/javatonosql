@@ -14,6 +14,7 @@ import oracle.nosql.driver.values.MapValue;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.UUID;
 
 
 public class TesteClass {
@@ -21,7 +22,6 @@ public class TesteClass {
     public static void main(String[] args) throws IOException {
 
         Message msg = new Message();
-        msg.setKey("keyteste");
         msg.setTitle("teste1");
         msg.setMessage("msg1");
         msg.setSender("sender1");
@@ -58,7 +58,7 @@ public class TesteClass {
     public static void inserirRegistro(NoSQLHandle handle, Message input){
 
         /* Make a row and write it */
-        MapValue value = new MapValue().put("key", input.getKey()).put("title", input.getTitle()).put("message", input.getMessage()).put("sender", input.getSender());
+        MapValue value = new MapValue().put("key", UUID.randomUUID().toString()).put("title", input.getTitle()).put("message", input.getMessage()).put("sender", input.getSender());
         PutRequest putRequest = new PutRequest().setValue(value).setTableName(cloudconfig.tableName);
 
         PutResult putResult = handle.put(putRequest);
