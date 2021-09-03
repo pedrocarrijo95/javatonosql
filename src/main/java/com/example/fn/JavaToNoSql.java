@@ -14,6 +14,9 @@ import java.util.UUID;
 public class JavaToNoSql {
     CloudConfig cloudconfig = new CloudConfig();
     public String handleRequest(String input) throws IOException {
+        if(input == null){
+            return "input nulo";
+        }
         Message message = null;
         Gson gson = new Gson();
         message = gson.fromJson(input,Message.class);
